@@ -13,6 +13,10 @@
         h1 {
             font-family: Exile, cursive;
         }
+        p {
+            text-align: center;
+            max-width: 200px;
+        }
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -24,7 +28,6 @@
             padding: 5px;
         }
         .btn {
-            margin-top: 10px;
             margin-bottom: 20px;
             padding: 5px 10px;;
             background-color: #D1BB9E;
@@ -36,18 +39,23 @@
             background-color: #A79277;
             border-color: black;
         }
+        .btn:active {
+            color: white;
+            background-color: #A79277 !important;
+            border-color: black !important;
+        }
         .container {
             display: flex;
             justify-content: center;
             align-items: flex-start;
         }
-        .calculator {
-            flex-direction: row;
+        .calculator-container {
+            flex-direction: column;
             padding: 20px;
-            width: 300px;
+            min-width: 195px;
         }
         .image-container img {
-            flex-direction: row;
+            flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
             margin-top: 30px;
@@ -75,7 +83,7 @@
     <h1>The Ultimate Sausage Mix Calculator</h1>
 
     <div class="container">
-        <div class="calculator">
+        <div class="calculator-container">
             <label for="fatLean">Fat % of lean meat:</label>
             <input type="number" class="form-control" id="fatLean"><br><br>
             
@@ -90,7 +98,7 @@
 
             <button class="btn btn-primary rounded-pill px-3" type="button" onclick="calculateMix()">Calculate Mix</button>
 
-            <h4>Results:</h4>
+            <h5>Results:</h5>
             <p id="resultA"></p>
             <p id="resultB"></p>
         </div>
@@ -114,8 +122,8 @@
             }
 
             if (!(fatLean < fatFinal && fatFinal < fatFatty) && !(fatFatty < fatFinal && fatFinal < fatLean)) {
-                document.getElementById("resultA").innerText = "The final fat percentage must be between";
-                document.getElementById("resultB").innerText = "the lean and fatty meat percentages.";
+                document.getElementById("resultA").innerText = "The final fat percentage must be between the lean and fatty meat percentages.";
+                document.getElementById("resultB").innerText = "";
                 return;
             }
 
