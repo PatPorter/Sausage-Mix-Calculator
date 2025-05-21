@@ -13,9 +13,9 @@
         h1 {
             font-family: Exile, cursive;
         }
-        p {
-            text-align: center;
+        h5, p {
             max-width: 200px;
+            margin: auto;
         }
         body {
             font-family: Arial, sans-serif;
@@ -46,22 +46,24 @@
         }
         .container {
             display: flex;
+            flex-direction: row;
             justify-content: center;
             align-items: flex-start;
         }
-        .calculator-container {
-            flex-direction: column;
-            padding: 20px;
-            min-width: 195px;
-        }
         .image-container img {
+            margin-top: 50px;
             flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            margin-top: 30px;
             border-radius: 20px;
             width: 100%;
-            max-width: 300px;
+            max-width: 400px;
+        }
+        .calculator-container {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            max-width: 400px;
+            min-width: 250px;
         }
         .form-control {
             background-color: #FFF2E1;
@@ -76,6 +78,15 @@
         .form-control::selection {
             background-color: #D1BB9E;
         }
+        @media (max-width:800px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .image-container img {
+                margin-top: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -83,6 +94,9 @@
     <h1>The Ultimate Sausage Mix Calculator</h1>
 
     <div class="container">
+        <div class="image-container">
+            <img src="./assets/sausage.png" alt="Ultimate Warrior with some sausage">
+        </div>
         <div class="calculator-container">
             <label for="fatLean">Fat % of lean meat:</label>
             <input type="number" class="form-control" id="fatLean"><br><br>
@@ -101,10 +115,6 @@
             <h5>Results:</h5>
             <p id="resultA"></p>
             <p id="resultB"></p>
-        </div>
-
-        <div class="image-container">
-            <img src="./assets/sausage.png" alt="Ultimate Warrior with some sausage">
         </div>
     </div>
 
